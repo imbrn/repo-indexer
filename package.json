@@ -1,0 +1,31 @@
+{
+  "name": "indexer-js",
+  "version": "0.0.1",
+  "description": "A tool for converting a repository into a static API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruno02221/indexer-js.git"
+  },
+  "keywords": [
+    "tool",
+    "indexing",
+    "api",
+    "static"
+  ],
+  "author": "Bruno C. Couto <brunodev02221@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bruno02221/indexer-js/issues"
+  },
+  "homepage": "https://github.com/bruno02221/indexer-js#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.4",
+    "mock-fs": "^4.4.2"
+  }
+}
