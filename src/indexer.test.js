@@ -137,4 +137,43 @@ describe("the indexer function", function() {
       });
     });
   });
+
+  describe("indexing folder with old _index", function() {
+    beforeAll(() => {
+      mockfs({
+        _index: {
+          "api.json": "",
+          old_folder: {
+            old_file: "Old file"
+          }
+        },
+        "one.txt": "One",
+        "two.txt": "Two"
+      });
+      indexer();
+    });
+
+    afterAll(() => {
+      mockfs.restore();
+    });
+
+    test("should completely delete the old _index folder", () => {
+      expect(fs.existsSync("./_index/old_folder")).toBeFalsy();
+    });
+
+    test("should create a new _index folder", () => {
+      expect(fs.existsSync("./_index")).toBeTruthy();
+    });
+
+    test("should replace api.json", () => {
+      const apiJson = JSON.parse(fs.readFileSync("_index/api.json", "utf-8"));
+      expect(apiJson).toEqual({
+        size: 2,
+        items: {
+          "one.txt": "one.txt",
+          "two.txt": "two.txt"
+        }
+      });
+    });
+  });
 });

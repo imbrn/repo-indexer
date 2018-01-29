@@ -62,6 +62,23 @@ function isIgnored(file, options) {
 
 function makeIndexFolder(root) {
   const indexFolder = path.join(root, "_index");
+  forceDeleteFile(indexFolder);
   fs.mkdirSync(indexFolder);
   return indexFolder;
+}
+
+function forceDeleteFile(file) {
+  if (!fs.existsSync(file)) {
+    return;
+  }
+  const stat = fs.statSync(file);
+  if (stat.isDirectory()) {
+    fs.readdirSync(file).forEach(childFile => {
+      const childPath = path.join(file, childFile);
+      forceDeleteFile(childPath);
+    });
+    fs.rmdirSync(file);
+  } else {
+    fs.unlinkSync(file);
+  }
 }
