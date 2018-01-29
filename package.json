@@ -4,7 +4,8 @@
   "description": "A tool for converting a repository into a static API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "babel src -d build"
   },
   "repository": {
     "type": "git",
