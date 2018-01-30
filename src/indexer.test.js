@@ -176,4 +176,40 @@ describe("the indexer function", function() {
       });
     });
   });
+
+  describe("ignoring always ignored patterns", function() {
+    beforeAll(() => {
+      mockfs({
+        ".git": { HEAD: "" },
+        ".gitignore": "",
+        node_modules: { a_package: "" },
+        bower_components: { another_package: "" },
+        _index: { data: "" },
+        "package.json": "",
+        "package-lock.json": "",
+        "yarn.lock": "",
+        "gulpfile.js": "",
+        "bower.json": "",
+        "README.md": "",
+        LICENSE: "",
+        "LICENSE.txt": "",
+        "not_ignored_data.txt": ""
+      });
+      indexer();
+    });
+
+    afterAll(() => {
+      mockfs.restore();
+    });
+
+    test("should contain only not ignored data", () => {
+      const apiJson = JSON.parse(fs.readFileSync("./_index/api.json", "utf-8"));
+      expect(apiJson).toEqual({
+        size: 1,
+        items: {
+          "not_ignored_data.txt": "not_ignored_data.txt"
+        }
+      });
+    });
+  });
 });

@@ -1,7 +1,25 @@
 import fs from "fs";
 import path from "path";
 
-const alwaysIgnoredPattern = /(node_modules|bower_components|.git|.gitignore|^(_index)$)/;
+const alwaysIgnoredPattern = new RegExp(
+  "(" +
+    [
+      "^_index$",
+      "node_modules",
+      "bower_components",
+      ".git",
+      ".gitignore",
+      "package.json",
+      "package-lock.json",
+      "yarn.lock",
+      "bower.json",
+      "gulpfile.js",
+      "README.md",
+      "LICENSE",
+      "LICENSE.txt"
+    ].join("|") +
+    ")"
+);
 
 export default function indexer(
   root = ".",
@@ -47,10 +65,7 @@ function index(folder, indexFolder, options) {
     }
   });
 
-  fs.writeFileSync(
-    path.join(folderPath, "api.json"),
-    JSON.stringify(apiJson)
-  );
+  fs.writeFileSync(path.join(folderPath, "api.json"), JSON.stringify(apiJson));
 }
 
 function isIgnored(file, options) {
