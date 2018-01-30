@@ -38,8 +38,8 @@ The `_index/api.json` would look like this:
 
 ```json
 {
-  size: 2,
-  items: {
+  "size": 2,
+  "items": {
     "my_data_1": "_index/my_data_1",
     "my_data_2": "_index/my_data_2"
   }
@@ -50,8 +50,8 @@ and, `_index/my_data_1/api.json`:
 
 ```json
 {
-  size: 2,
-  items: {
+  "size": 2,
+  "items": {
     "one.txt": "my_data_1/one.txt",
     "two.txt": "my_data_1/two.txt"
   }
