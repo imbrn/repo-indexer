@@ -4,7 +4,7 @@
   "description": "A tool for converting a repository into a static API.",
   "main": "index.js",
   "bin": {
-    "index-repo": "build/cli.js"
+    "repo-indexer": "build/cli.js"
   },
   "scripts": {
     "test": "jest",
