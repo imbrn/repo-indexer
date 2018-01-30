@@ -1,8 +1,8 @@
 {
   "name": "repo-indexer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A tool for converting a repository into a static API.",
-  "main": "index.js",
+  "main": "build/cli.js",
   "bin": {
     "repo-indexer": "build/cli.js"
   },
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bruno02221/indexer-js.git"
+    "url": "git+https://github.com/bruno02221/repo-indexer.git"
   },
   "keywords": [
     "tool",
@@ -23,9 +23,9 @@
   "author": "Bruno C. Couto <brunodev02221@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bruno02221/indexer-js/issues"
+    "url": "https://github.com/bruno02221/repo-indexer/issues"
   },
-  "homepage": "https://github.com/bruno02221/indexer-js#readme",
+  "homepage": "https://github.com/bruno02221/repo-indexer#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
