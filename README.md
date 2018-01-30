@@ -4,6 +4,21 @@
 
 This is useful if you want to share data using your repo as it was an API.
 
+## How to use?
+
+Run this command inside the repo you want to index:
+
+```shell
+npx repo-indexer
+```
+
+If you're using `npm` before version `5.2`, then you can do:
+
+```shell
+npm i -g repo-indexer
+repo-indexer
+```
+
 ## How does it work?
 
 The **repo-indexer** crawls your repo looking for files and folders, then it creates an `_index` folder in the root of the repo, containing an indexed representation of this repo. But instead of copying files inside the folder, it creates an `api.json` for each folder, containing information about the files inside that folder. Information like quantity of files, sub-folders and files links are present in a `api.json` file.
