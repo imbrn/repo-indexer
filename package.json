@@ -1,6 +1,6 @@
 {
   "name": "repo-indexer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A tool for converting a repository into a static API.",
   "main": "build/cli.js",
   "bin": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel src -d build",
-    "prepublish": "npm test && npm build"
+    "prepublish": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
