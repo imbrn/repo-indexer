@@ -30,6 +30,7 @@
   "homepage": "https://github.com/bruno02221/repo-indexer#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^22.1.4",
     "mock-fs": "^4.4.2"
