@@ -41,7 +41,7 @@ function index(folder, indexFolder, options) {
     fs.mkdirSync(folderPath);
   }
 
-  const apiJson = {
+  let apiJson = {
     size: 0,
     items: {}
   };
@@ -49,7 +49,13 @@ function index(folder, indexFolder, options) {
   fs.readdirSync(folder).forEach(file => {
     const filePath = path.join(folder, file);
 
-    if (!isIgnored(filePath, options)) {
+    if (isDescriptionFile(filePath, options)) {
+      const description = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      apiJson = {
+        ...apiJson,
+        ...description
+      }
+    } else if (!isIgnored(filePath, options)) {
       const fileStat = fs.statSync(filePath);
       let location; // The sub file location in the index system
 
@@ -73,6 +79,10 @@ function isIgnored(file, options) {
     alwaysIgnoredPattern.test(file) ||
     (options.ignorePattern && options.ignorePattern.test(file))
   );
+}
+
+function isDescriptionFile(file, options) {
+  return /(description.json)/.test(file);
 }
 
 function makeIndexFolder(root) {

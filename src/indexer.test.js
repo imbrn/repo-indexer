@@ -193,7 +193,8 @@ describe("the indexer function", function() {
         "README.md": "",
         LICENSE: "",
         "LICENSE.txt": "",
-        "not_ignored_data.txt": ""
+        "not_ignored_data.txt": "",
+        "description.json": "{}"
       });
       indexer();
     });
@@ -208,6 +209,50 @@ describe("the indexer function", function() {
         size: 1,
         items: {
           "not_ignored_data.txt": "not_ignored_data.txt"
+        }
+      });
+    });
+  });
+
+  describe("merging description file into api.json", function() {
+    beforeAll(() => {
+      mockfs({
+        "description.json": "{ \"name\": \"Root folder\" }",
+        "data1.txt": "data1",
+        "sub-folder": {
+          "description.json": "{ \"name\": \"Data two\", \"value\": 15 }",
+          "data2.txt": "data2"
+        }
+      });
+      indexer();
+    });
+
+    afterAll(() => {
+      mockfs.restore();
+    });
+
+    test("should merge description for the root folder", () => {
+      const apiJson = JSON.parse(fs.readFileSync("_index/api.json", "utf-8"));
+      expect(apiJson).toEqual({
+        size: 2,
+        items: {
+          "data1.txt": "data1.txt",
+          "sub-folder": "_index/sub-folder"
+        },
+        name: "Root folder"
+      });
+    });
+
+    test("should merge description for the sub-folder", () => {
+      const apiJson = JSON.parse(
+        fs.readFileSync("_index/sub-folder/api.json", "utf-8")
+      );
+      expect(apiJson).toEqual({
+        name: "Data two",
+        value: 15,
+        size: 1,
+        items: {
+          "data2.txt": "sub-folder/data2.txt"
         }
       });
     });
