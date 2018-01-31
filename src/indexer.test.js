@@ -194,7 +194,7 @@ describe("the indexer function", function() {
         LICENSE: "",
         "LICENSE.txt": "",
         "not_ignored_data.txt": "",
-        "description.json": "{}"
+        "_description.json": "{}"
       });
       indexer();
     });
@@ -217,10 +217,10 @@ describe("the indexer function", function() {
   describe("merging description file into api.json", function() {
     beforeAll(() => {
       mockfs({
-        "description.json": "{ \"name\": \"Root folder\" }",
+        "_description.json": "{ \"name\": \"Root folder\" }",
         "data1.txt": "data1",
         "sub-folder": {
-          "description.json": "{ \"name\": \"Data two\", \"value\": 15 }",
+          "_description.json": "{ \"name\": \"Data two\", \"value\": 15 }",
           "data2.txt": "data2"
         }
       });

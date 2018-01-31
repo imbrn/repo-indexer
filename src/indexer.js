@@ -82,7 +82,7 @@ function isIgnored(file, options) {
 }
 
 function isDescriptionFile(file, options) {
-  return /(description.json)/.test(file);
+  return /(_description.json$)/.test(file);
 }
 
 function makeIndexFolder(root) {
