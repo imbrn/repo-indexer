@@ -1,6 +1,6 @@
 {
   "name": "repo-indexer",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A tool for converting a repository into a static API.",
   "main": "build/cli.js",
   "bin": {
