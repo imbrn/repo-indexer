@@ -1,12 +1,12 @@
 # repo-indexer
 
-**repo-indexer** is a tool to generate an indexed representation of an static repo.
+**repo-indexer** is a tool to generate an indexed representation of a folder.
 
-This is useful if you want to share data using your repo as it was an API.
+This is useful if you want to share data using your repository as it was an API.
 
 ## How to use?
 
-Run this command inside the repo you want to index:
+Run this command inside the repository you want to index:
 
 ```shell
 npx repo-indexer
@@ -21,9 +21,9 @@ repo-indexer
 
 ## How does it work?
 
-The **repo-indexer** crawls your repo looking for files and folders, then it creates an `_index` folder in the root of the repo, containing an indexed representation of this repo. But instead of copying files inside the folder, it creates an `api.json` for each folder, containing information about the files inside that folder. Information like quantity of files, sub-folders and files links are present in a `api.json` file.
+The **repo-indexer** crawls your repository looking for files and folders, then it creates an `_index` folder in the root of the repository, containing an indexed representation of this repository. But instead of copying files inside the folder, it creates an `api.json` for each folder, containing information about the files inside that folder. Information like quantity of files, sub-folders and files links are present in a `api.json` file.
 
-This can be very useful if you want to keep a public repo for sharing data across different clients. The `_index` folder can be used as an entry point for your data as a `read-only` Restful API.
+This can be very useful if you want to keep a public repository for sharing data across different clients. The `_index` folder can be used as an entry point for your data as a `read-only` Restful API.
 
 ## Example
 
