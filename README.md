@@ -102,3 +102,7 @@ If the repository is hosted in GitHub, you can access it as an API, using URLs:
 
 `https://githubusercontent.com/<user>/<repository>/master/en_pt/api.json`
 `https://githubusercontent.com/<user>/<repository>/master/pt_es/api.json`
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT)
