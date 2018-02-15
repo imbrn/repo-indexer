@@ -1,5 +1,8 @@
 # repo-indexer
 
+[![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 **repo-indexer** is a tool to generate an indexed representation of a folder.
 
 This is useful if you want to share data using your repository as it was an API.
